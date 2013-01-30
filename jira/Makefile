@@ -21,6 +21,7 @@ help:
 $(PROJ): $(GHIJ)
 	cp config-$@.clj $(GHIJ)
 	cd $(GHIJ) && lein run $@
+	cp JIRA-$@.csv ../..
 
 $(GHIJ):
 	git clone git@github.com:kylecordes/ghijira.git $(GHIJ)

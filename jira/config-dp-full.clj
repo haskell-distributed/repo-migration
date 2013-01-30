@@ -4,7 +4,7 @@
 
 {
  ; Github login:
- :auth "watson.timothy@gmail.com:hyperthunk4g1thub"
+ :auth "watson.timothy@gmail.com:<PASSWORD>"
  
  ; Project owner and name:
  :ghuser "haskell-distributed"
