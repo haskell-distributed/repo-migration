@@ -38,5 +38,7 @@ $(TARGETS):
 			git --git-dir=$@/.git --work-tree=$@ update-ref -d
 	git --git-dir=$@/.git --work-tree=$@ reflog expire --expire=now --all
 	git --git-dir=$@/.git --work-tree=$@ gc --aggressive --prune=now
-	generate-artefacts.py "$@"
+	cat REPOS | sed "s/`cat $@/dirname`//g" >> $@/REPOS
+	cp Makefile.template $@/Makefile
+	cat README.md | sed "s/@REPO@/`cat $@/dirname`/g" >> $@/README.md
 	rm $@/dirname
