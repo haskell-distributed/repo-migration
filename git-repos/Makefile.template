@@ -4,7 +4,7 @@ GHC ?= $(shell which ghc)
 CABAL ?= $(shell which cabal)
 
 BASE_GIT := git://github.com/haskell-distributed
-REPOS=$(shell cat REPOS)
+REPOS=$(shell cat REPOS | sed '/^$$/d')
 
 .PHONY: all
 all: $(REPOS)

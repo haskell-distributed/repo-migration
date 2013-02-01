@@ -42,3 +42,6 @@ $(TARGETS):
 	cp Makefile.template $@/Makefile
 	cat README.md | sed "s/@REPO@/`cat $@/dirname`/g" >> $@/README.md
 	rm $@/dirname
+	git --git-dir=$@/.git --work-tree=$@ add $@/Makefile $@/README.md $@/REPOS
+	git --git-dir=$@/.git --work-tree=$@ commit -m "add common artefacts"
+	git --git-dir=$@/.git --work-tree=$@ tag -a repo-split -m "split the repository from distributed-process"
